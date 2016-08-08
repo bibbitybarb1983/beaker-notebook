@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Beaker-notebook by bibbitybarb1983</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Beaker-notebook</h1>
+      <h2 class="project-tagline">Web-based, polyglot research platform.</h2>
+      <a href="https://github.com/bibbitybarb1983/beaker-notebook" class="btn">View on GitHub</a>
+      <a href="https://github.com/bibbitybarb1983/beaker-notebook/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/bibbitybarb1983/beaker-notebook/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      
+
+<h1>
+<a id="beaker---the-data-scientists-laboratory" class="anchor" href="#beaker---the-data-scientists-laboratory" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Beaker - the data scientist's laboratory</h1>
+
+<p>Beaker is a code notebook that allows you to analyze, visualize, and document data using multiple programming languages. Beaker's plugin-based polyglot architecture enables you to seamlessly switch between languages in your documents and add support for your favorite languages that we've missed.</p>
+
+<p>Beaker is both a server that you can run in the cloud, an application that you can download and run, and
+a <a href="https://hub.docker.com/r/beakernotebook/beaker/">Docker container</a> that you can run anywhere.</p>
+
+<p>This page is for developers.  If you want to use or learn more about Beaker, see the <a href="http://beakernotebook.com">home page</a>.</p>
+
+<h1>
+<a id="screenshots" class="anchor" href="#screenshots" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Screenshots</h1>
+
+<p><img src="https://raw.githubusercontent.com/twosigma/beaker-notebook/master/doc/screenshots.png" alt="screenshots"></p>
+
+<h1>
+<a id="publication-server" class="anchor" href="#publication-server" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Publication Server</h1>
+
+<p>Notebooks can published and converted into web pages that anyone can access with an ordinary web browser, even on a mobile device.
+This free service is integrated into the application, and can be applied with just one click to any cell, section, or a whole notebook.
+Plots and tables remain interactive in published version.  Learn more, and explore a variety of notebooks from the user community on the <a href="http://pub.beakernotebook.com/">publication server</a>.</p>
+
+<h1>
+<a id="build-test-and-run-instructions" class="anchor" href="#build-test-and-run-instructions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Build, test, and run instructions</h1>
+
+<p>See the page for your platform for how to build from source:
+<a href="https://github.com/twosigma/beaker-notebook/wiki/Ubuntu-build-and-run">Ubuntu</a>,
+<a href="https://github.com/twosigma/beaker-notebook/wiki/Mac-build-and-run">Mac</a>,
+<a href="https://github.com/twosigma/beaker-notebook/wiki/Windows-build-and-run">Windows</a>, and
+<a href="https://github.com/twosigma/beaker-notebook/blob/master/Dockerfile">Docker</a>.  We use gradle to compile the project.</p>
+
+<p>Say <code>cd test; ./runner</code> to run the end-to-end tests with Protractor.</p>
+
+<p>Say <code>cd test; ./perftest</code> to run performance tests with Protractor. Performance tests are pretty demanding and will lock up the browser performing the tests. Any interaction with the browser while the tests are running will affect the tests and skew the results.</p>
+
+<p><a href="http://ec2-54-175-192-115.compute-1.amazonaws.com:8080/job/Beaker%20master"><img src="http://ec2-54-175-192-115.compute-1.amazonaws.com:8080/buildStatus/icon?job=Beaker%20master" alt="Build Status"></a></p>
+
+<p>To enable the debug menu, add the following to your <code>beaker.pref.json</code> file:</p>
+
+<pre><code>"notebook-app-menu-plugins": ["./plugin/menu/debug.js"]
+</code></pre>
+
+<h2>
+<a id="presentation-and-demo-on-youtube" class="anchor" href="#presentation-and-demo-on-youtube" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Presentation and Demo on YouTube</h2>
+
+<p><a href="https://www.youtube.com/watch?v=wu65cYffMSg"><img src="http://img.youtube.com/vi/wu65cYffMSg/0.jpg" alt="Greenwood and Draves speak at PyData"></a></p>
+
+<h2>
+<a id="language-support" class="anchor" href="#language-support" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Language support</h2>
+
+<p>We currently provide support for Python, R, Julia, Groovy, Ruby, Java, Scala, Kdb, Clojure, JavaScript, HTML, Markdown, and LaTeX.</p>
+
+<p>Beaker supports <em>autotranslation</em> of variables between languages.  For
+example, you can read and process some data in Python, model it with
+R, and then turn that into an interactive visualization with
+Javascript.</p>
+
+<h2>
+<a id="architecture" class="anchor" href="#architecture" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Architecture</h2>
+
+<p>Beaker is primarily composed of a Java server and a Javascript client.
+There are plugins for each language, and interaction plugins as well.
+The architecture and the organization of the source is code is covered
+in the <a href="https://github.com/twosigma/beaker-notebook/wiki/Architecture">Architecture
+wiki</a>.</p>
+
+<p>Plugin specifications: <a href="https://github.com/twosigma/beaker-notebook/wiki/Eval-plugin-spec">Evaluator
+plugins</a>,
+<a href="https://github.com/twosigma/beaker-notebook/wiki/Menu-plugin-spec">Menu
+plugins</a>,
+<a href="https://github.com/twosigma/beaker-notebook/wiki/OutputDisplay-spec">Output display
+plugins</a></p>
+
+<h2>
+<a id="open-source" class="anchor" href="#open-source" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Open source</h2>
+
+<p>Beaker's full source code and documentation is available under the
+Apache 2.0 license.</p>
+
+<h2>
+<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributing</h2>
+
+<p>We welcome developers to extend and improve Beaker in ways that can
+benefit everyone. In order for us to accept your code or pull request,
+we need for you to fill out and email back to us a scan of a signed copy of the
+<a href="http://beakernotebook.com/cla.zip">Contributor License Agreement</a>.</p>
+
+<p>We're also looking to expand our full-time, NYC-based engineering team
+with a <a href="https://careers.twosigma.com/careers/JobDetail/New-York-New-York-United-States-Beaker-Full-Stack-Web-Developer/361">full-stack web developer</a>.</p>
+
+<hr>
+
+<p><img src="HTTP://www.drvegoogle.com" alt=""></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/bibbitybarb1983/beaker-notebook">Beaker-notebook</a> is maintained by <a href="https://github.com/bibbitybarb1983">bibbitybarb1983</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
